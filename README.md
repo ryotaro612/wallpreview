@@ -29,4 +29,4 @@ If arg is nil, use the forcused image."
 ```
 
 `M-x wallpreview-open-wallpaper-directory` opens `wallpreview-wallpaper-directory` in `image-dired`,
-and turn on `wallpreview`.
+and turns on `wallpreview`.
