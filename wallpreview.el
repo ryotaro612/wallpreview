@@ -1,4 +1,4 @@
-;;; wallpreview.el --- Update wallpapers with image-dired -*- lexical-binding: t -*-
+;;; wallpreview.el --- Set wallpapers with image-dired -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 Nakamura, Ryotaro <nakamura.ryotaro.kzs@gmail.com>
 ;; Version: 1.0.0
