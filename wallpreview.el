@@ -67,7 +67,7 @@
 
 (defun wallpreview--set-wallpaper (&optional arg)
   "Set a background as ARG.
-If arg is nil, use the forcused image."
+If arg is nil, use the focused image."
   (interactive "fBackground image: ")
   (let ((wallpaper-path (or arg (image-dired-original-file-name))))
     (call-process-shell-command
@@ -77,12 +77,12 @@ If arg is nil, use the forcused image."
 (defun wallpreview--set-wallpaper-after
     (&rest _)
   "A Callback function.
-This function is an after adivce for
+This function is an after advice for
 image-dired-[forward, backward]-image, image-dired-[previous, next]-line."
   (wallpreview--set-wallpaper))
 
 (defvar wallpreview--on nil
-  "If the value is not nil, wallpreivew is enabled.")
+  "If the value is not nil, wallpreview is enabled.")
 
 (defun wallpreview--enable ()
   "Turn on wallpreview."
