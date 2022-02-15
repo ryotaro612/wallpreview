@@ -57,7 +57,7 @@
   "Open `wallpreview-wallpaper-directory' with `image-dired'."
   (interactive)
   (image-dired wallpreview-wallpaper-directory)
-  (wallpreview--enable))
+  (wallpreview-mode t))
 
 (defun wallpreview--sway-bg (wallpaper-path)
   "Change the backgrounds to the content of WALLPAPER-PATH."
@@ -115,15 +115,27 @@ image-dired-[forward, backward]-image, image-dired-[previous, next]-line."
       (wallpreview--disable)
     (wallpreview--enable)))
 
-(defun wallpreview--bind-toggle-key ()
-    "Toggle wallpreview."
-    (define-key
-      image-dired-thumbnail-mode-map
-      wallpreview-toggle-key
-      #'wallpreview--toggle))
-
-(add-hook 'image-dired-thumbnail-mode-hook
-	  #'wallpreview--bind-toggle-key)
+;;;###autoload
+(define-minor-mode wallpreview-mode
+  "Turn on wallpreview-mode."
+  :init-value nil ; Initial value, nil for disabled
+  :lighter " wallpreview"
+  :global t
+  (let ((map image-dired-thumbnail-mode-map)
+	(key wallpreview-toggle-key))
+      (if wallpreview-mode
+      (progn
+	(define-key
+	  map
+	  key
+	  #'wallpreview--toggle)
+	(wallpreview--enable))
+    (progn
+	(define-key
+	  map
+	  key
+	  nil)
+      (wallpreview--disable)))))
 
 (provide 'wallpreview)
 ;;; wallpreview.el ends here
