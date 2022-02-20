@@ -1,7 +1,7 @@
 ;;; wallpreview.el --- Set wallpapers with image-dired -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 Nakamura, Ryotaro <nakamura.ryotaro.kzs@gmail.com>
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/nryotaro/wallpreview
 
