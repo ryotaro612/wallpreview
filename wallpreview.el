@@ -123,19 +123,19 @@ image-dired-[forward, backward]-image, image-dired-[previous, next]-line."
   :global t
   (let ((map image-dired-thumbnail-mode-map)
 	(key wallpreview-toggle-key))
-      (if wallpreview-mode
+    (if wallpreview-mode
+	(progn
+	  (define-key
+	    map
+	    key
+	    #'wallpreview--toggle)
+	  (wallpreview--enable))
       (progn
 	(define-key
 	  map
 	  key
-	  #'wallpreview--toggle)
-	(wallpreview--enable))
-    (progn
-	(define-key
-	  map
-	  key
 	  nil)
-      (wallpreview--disable)))))
+	(wallpreview--disable)))))
 
 (provide 'wallpreview)
 ;;; wallpreview.el ends here
