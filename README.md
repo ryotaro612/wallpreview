@@ -8,7 +8,8 @@ A running example is as below.
 ![demo](./demo.gif)
 
 ## Installation
-Place `wallpreview.el`  in a directory that Emacs can load.
+
+You can install it from Melpa.
 
 ## Usage
 
