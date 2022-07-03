@@ -1,7 +1,7 @@
 ;;; wallpreview.el --- Set wallpapers with image-dired -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 Nakamura, Ryotaro <nakamura.ryotaro.kzs@gmail.com>
-;; Version: 1.0.1
+;; Version: 2.0.0
 ;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/nryotaro/wallpreview
 
@@ -33,7 +33,7 @@
 (require 'image-dired)
 
 (defgroup wallpreview nil
-  "Set wallpapers with image-dired."
+  "Set wallpapers with `image-dired`'."
   :prefix "wallpreview-"
   :group 'wallpreview)
 
@@ -56,7 +56,9 @@
     ()
   "Open `wallpreview-wallpaper-directory' with `image-dired'."
   (interactive)
-  (image-dired wallpreview-wallpaper-directory)
+  (with-current-buffer (dired wallpreview-wallpaper-directory)
+    (dired-sort-toggle-or-edit)
+    (image-dired wallpreview-wallpaper-directory))
   (wallpreview-mode t))
 
 (defun wallpreview--sway-bg (wallpaper-path)
